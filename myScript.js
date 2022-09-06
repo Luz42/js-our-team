@@ -57,13 +57,13 @@ const teamArray = [
     {
         name: 'Angela Lopez',
         role: 'Social Media Manager',
-        picture: 'scott-estrada-developer.jpg' 
+        picture: 'angela-lopez-social-media-manager.jpg' 
     },
     
     {
         name: 'Scott Estrada',
         role: 'Developer',
-        picture: 'angela-caroll-chief-editor.jpg' 
+        picture: 'scott-estrada-developer.jpg' 
     },
 
     {
@@ -75,18 +75,40 @@ const teamArray = [
 
 //ciclo l'array in modo da andare a selezionare ogni oggetto
 
+const rowHTML = document.querySelector('.row')
+
 for(let teamMember = 0; teamMember < teamArray.length; teamMember++ ){
 
     //ogni ciclo stamperà ciascun oggetto contenuto nell'array
     const team = teamArray[teamMember]
     console.log(team)
+    //per ogni oggetto viene creato un contenitore
+    const teamCard = document.createElement('div')
+    //al contenitore vengono aggiunte delle classi
+    teamCard.classList.add('col-4', 'p-3', 'border', 'border-3', 'bg-info')
+
 
     for(let key in team){
         //ogni oggetto preso dal ciclo precedente
         //viene aggiunto un altro ciclo
         //ogni ciclo andrà a prendere ciascuna PROPRIETA' di quell'oggetto
         //vengono stampati in console
-        console.log(` ${key} is: ${team[key]}`)
+
+        if(key === 'picture'){
+
+            //nel caso la chiave sia quella che indica l'immagine
+            console.log(team[key])
+            teamCard.innerHTML += `<img class = "img-fluid" src="img/${team[key]}" alt="#">`            
+
+        }
+        else{
+
+        console.log(`${key} is: ${team[key]}`)
+        //all'interno di ogni div creato vengono inserite le PROPRIETA'
+        teamCard.innerHTML += `<h4>${team[key]}</h4>`
+        rowHTML.append(teamCard)
+        };
+
     }
 
 }
