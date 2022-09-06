@@ -77,12 +77,17 @@ const teamArray = [
 
 for(let teamMember = 0; teamMember < teamArray.length; teamMember++ ){
 
-    //console.log(teamArray[teamMember])
+    //ogni ciclo stamperà ciascun oggetto contenuto nell'array
     const team = teamArray[teamMember]
     console.log(team)
 
-    //for(let key in )
+    for(let key in team){
+        //ogni oggetto preso dal ciclo precedente
+        //viene aggiunto un altro ciclo
+        //ogni ciclo andrà a prendere ciascuna PROPRIETA' di quell'oggetto
+        //vengono stampati in console
+        console.log(` ${key} is: ${team[key]}`)
+    }
 
 }
 
-//aggiungo all'interno un altro ciclo che mi permette di stampare le informazioni di ogni oggetto
